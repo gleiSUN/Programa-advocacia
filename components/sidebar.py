@@ -147,3 +147,17 @@ def toggle_modal(n, n2, n3, is_open):
     if n or n2 or n3:
         return not is_open
     return is_open
+
+# No final do layout do sidebar, adicionar:
+dbc.NavItem(dbc.NavLink([
+    html.I(className='fas fa-sign-out-alt', style={'color': '#FF0000', 'margin-right': '10px'}),
+    "SAIR"
+], id='logout-button', active=True, 
+style={
+    'text-align': 'left', 
+    'color': '#FFFFFF',
+    'background-color': '#333333',
+    'border-radius': '5px',
+    'padding': '10px',
+    'margin-top': '20px'
+}))
