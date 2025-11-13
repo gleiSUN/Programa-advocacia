@@ -127,7 +127,7 @@ def criar_layout_login():
                             dbc.Row([
                                 dbc.Col([
                                     html.Small(
-                                        "Usuário padrão: admin / Senha: admin123",
+                                        
                                         className="text-center d-block",
                                         style={'color': '#CCCCCC'}
                                     )

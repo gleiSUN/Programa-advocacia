@@ -13,10 +13,7 @@ from app import app
 # ========= Layout ========= #
 import dash_bootstrap_components as dbc
 
-
-# Assuming modal_novo_processo, modal_novo_advogado, modal_advogados are defined elsewhere
-
-# Add FontAwesome CSS link to ensure icons load (if not already in your app)
+# Add FontAwesome CSS link to ensure icons load
 fontawesome_link = html.Link(href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css", rel="stylesheet")
 
 layout = dbc.Container([
@@ -54,7 +51,7 @@ layout = dbc.Container([
     style={
         'padding-top': '50px', 
         'margin-bottom': '100px', 
-        'background-color': '#333333',  # Dark gray background (cinza escuro)
+        'background-color': '#333333',  # Dark gray background
         'border-radius': '10px',  # Rounded corners for modern look
         'box-shadow': '0 4px 8px rgba(0,0,0,0.5)'  # Shadow for depth
     }, 
@@ -103,6 +100,20 @@ layout = dbc.Container([
                     'padding': '10px',
                     'margin-bottom': '10px'
                 })),
+                
+                # ✅ BOTÃO DE LOGOUT ADICIONADO DENTRO DO NAV
+                dbc.NavItem(dbc.NavLink([
+                    html.I(className='fas fa-sign-out-alt', style={'color': '#FF0000', 'margin-right': '10px'}),
+                    "SAIR"
+                ], id='logout-button', active=True, 
+                style={
+                    'text-align': 'left', 
+                    'color': '#FFFFFF',
+                    'background-color': '#333333',
+                    'border-radius': '5px',
+                    'padding': '10px',
+                    'margin-top': '20px'  # Espaço acima do botão
+                })),
             ], 
             vertical="lg", 
             pills=True, 
@@ -117,10 +128,8 @@ style={
     'padding': '0px', 
     'position': 'sticky', 
     'top': 0, 
-    'background-color': '#333333'  # Overall dark gray background (cinza escuro)
+    'background-color': '#333333'  # Overall dark gray background
 })
-
-    
 
 # ======= Callbacks ======== #
 # Abrir Modal New Lawyer
@@ -147,17 +156,3 @@ def toggle_modal(n, n2, n3, is_open):
     if n or n2 or n3:
         return not is_open
     return is_open
-
-# No final do layout do sidebar, adicionar:
-dbc.NavItem(dbc.NavLink([
-    html.I(className='fas fa-sign-out-alt', style={'color': '#FF0000', 'margin-right': '10px'}),
-    "SAIR"
-], id='logout-button', active=True, 
-style={
-    'text-align': 'left', 
-    'color': '#FFFFFF',
-    'background-color': '#333333',
-    'border-radius': '5px',
-    'padding': '10px',
-    'margin-top': '20px'
-}))
